@@ -1,40 +1,40 @@
 import img from "../../assets/images/SingIn.jpg";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
- import { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import useTitle from "../../Hooks/useTitle";
-import "./SignIn.css"
+import "./SignIn.css";
 import { AuthContext } from "../../Providers/AuthProvider";
-import {useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const SignIn = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
-  useTitle('Anime ToyWorld | Sign In');
+  useTitle("Anime ToyWorld | Sign In");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-//   ----- Navigate After login -----
+  //   ----- Navigate After login -----
   const navigate = useNavigate();
   const location = useLocation();
-  console.log('login page location', location)
-  const from = location.state?.from?.pathname || '/'
+  console.log("login page location", location);
+  const from = location.state?.from?.pathname || "/";
 
   // -----Success and error message -----
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // -----Regular Sign In-----
-  const handleSignIn = () => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(email, password);
-    setError("");
-    form.reset();
-
-    signIn(email, password)
+  // -----Regular Sign In with react hook form-----
+  const onSubmit = (data) => {
+    signIn(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        reset();
         setSuccess("User has been signed in Successfully");
         navigate(from, { replace: true });
       })
@@ -42,7 +42,7 @@ const SignIn = () => {
         console.log(error);
         setError(error.message);
       });
-  };
+    };
 
   //  < ----- Google Sign-in ----->
   const handleGoogleSignIn = () => {
@@ -61,10 +61,10 @@ const SignIn = () => {
         console.log(error.message);
       });
   };
+
   return (
     <div>
       <div className="hero min-h-screen sign-in-background">
-      
         <div className="hero-content flex-col lg:flex-row">
           <div className="w-1/2 py-6 lg:mr-20">
             <img src={img} alt="" className="rounded-2xl shadow-2xl" />
@@ -72,7 +72,7 @@ const SignIn = () => {
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 h-[620px]">
             <div className="card-body">
               <h1 className="text-5xl font-bold text-center">Sign In</h1>
-              <form onSubmit={handleSignIn}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
@@ -82,8 +82,11 @@ const SignIn = () => {
                     type="email"
                     placeholder="Your Email"
                     className="input input-bordered"
-                    required
+                    {...register("email", { required: true })}
                   />
+                  {errors.name && (
+                    <span className="text-red-600 mt-2">Email is required</span>
+                  )}
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -94,8 +97,13 @@ const SignIn = () => {
                     type="Password"
                     placeholder="Your Password"
                     className="input input-bordered"
-                    required
+                    {...register("password", { required: true })}
                   />
+                  {errors.name && (
+                    <span className="text-red-600 mt-2">
+                      Password is required
+                    </span>
+                  )}
                   <label className="label">
                     <p>
                       Don&apos;t have an account ?{" "}

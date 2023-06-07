@@ -2,18 +2,19 @@
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
-// import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
-//   const { user, logOut } = useContext(AuthContext);
-const user = false;
-  //* <-----Log-out function-----> */
-//   const handleLogout = () => {
-//     logOut()
-//       .then(() => {})
-//       .catch((error) => console.error(error));
-//   };
-//   console.log(user);
+  const { user, logOut } = useContext(AuthContext);
+
+  // * <-----Log-out function-----> */
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+  console.log(user);
 
   const navItems = (
     <>
@@ -100,7 +101,7 @@ const user = false;
           {/* -----conditional sign in sign out----- */}
           {user ? (
             <Link
-            //   onClick={handleLogout}
+              onClick={handleLogout}
               className="btn btn-outline font-extrabold border-4 border-[#bg-#90ee904f] hover:bg-green-800 rounded-md mr-5"
             >
               Logout
