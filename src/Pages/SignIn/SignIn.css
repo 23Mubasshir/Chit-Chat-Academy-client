@@ -1,0 +1,9 @@
+.sign-in-background {
+  background: rgb(216, 255, 239);
+  background: linear-gradient(
+    0deg,
+    rgb(0, 255, 179, 0.171) 0%,
+    rgb(255, 255, 255) 50%,
+    rgba(0, 255, 179, 0.171) 100%
+  );
+}
