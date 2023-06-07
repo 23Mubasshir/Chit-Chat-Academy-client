@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/SignUp.jpg";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import useTitle from "../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
 
 const SignUp = () => {
+  const [error, setError] = useState(false);
   useTitle("Anime ToyWorld | Sign Up");
   const { createUser, signInWithGoogle, userProfileUpdating, setUser } =
     useContext(AuthContext);
@@ -19,40 +20,49 @@ const SignUp = () => {
 
   //  < ----- Regular Sign-Up ----->
   const onSubmit = (data) => {
-    createUser(data.email, data.password).then((result) => {
-      const createdUser = result.user;
 
-      userProfileUpdating(createdUser, data.name, data.photoURL).then(() =>{
-        setUser({...createdUser, displayName : data.name, photoURL : data.photoURL});
+    if (data.password == data.confirm_password){
+      createUser(data.email, data.password).then((result) => {
+        const createdUser = result.user;
+  
+        userProfileUpdating(createdUser, data.name, data.photoURL).then(() => {
+          setUser({
+            ...createdUser,
+            displayName: data.name,
+            photoURL: data.photoURL,
+          });
+        });
+  
+        // userProfileUpdating(data.name, data.photoURL)
+        //   .then(() => {
+        //   //   const saveUser = { name: data.name, email: data.email };
+        //   //   fetch("https://bistro-boss-server-fawn.vercel.app/users", {
+        //   //     method: "POST",
+        //   //     headers: {
+        //   //       "content-type": "application/json",
+        //   //     },
+        //   //     body: JSON.stringify(saveUser),
+        //   //   })
+        //   //     .then((res) => res.json())
+        //   //     .then((data) => {
+        //   //       if (data.insertedId) {
+        //   //         reset();
+        //   //         Swal.fire({
+        //   //           position: "top-end",
+        //   //           icon: "success",
+        //   //           title: "User created successfully.",
+        //   //           showConfirmButton: false,
+        //   //           timer: 1500,
+        //   //         });
+        //   //         navigate("/");
+        //   //       }
+        //   //     });
+        //   })
+        //   .catch((error) => console.log(error));
       });
-
-      // userProfileUpdating(data.name, data.photoURL)
-      //   .then(() => {
-      //   //   const saveUser = { name: data.name, email: data.email };
-      //   //   fetch("https://bistro-boss-server-fawn.vercel.app/users", {
-      //   //     method: "POST",
-      //   //     headers: {
-      //   //       "content-type": "application/json",
-      //   //     },
-      //   //     body: JSON.stringify(saveUser),
-      //   //   })
-      //   //     .then((res) => res.json())
-      //   //     .then((data) => {
-      //   //       if (data.insertedId) {
-      //   //         reset();
-      //   //         Swal.fire({
-      //   //           position: "top-end",
-      //   //           icon: "success",
-      //   //           title: "User created successfully.",
-      //   //           showConfirmButton: false,
-      //   //           timer: 1500,
-      //   //         });
-      //   //         navigate("/");
-      //   //       }
-      //   //     });
-      //   })
-      //   .catch((error) => console.log(error));
-    });
+    }
+    else(setError(true));
+     
   };
 
   //  < ----- Google Sign-up ----->
@@ -68,6 +78,8 @@ const SignUp = () => {
         console.log(error.message);
       });
   };
+
+
 
   return (
     <div>
@@ -147,20 +159,36 @@ const SignUp = () => {
                     })}
                   />
                   {errors.password?.type === "required" && (
-                    <p className="text-red-600 ">Password is required</p>
+                    <p className="text-red-600 ">* Password is required</p>
                   )}
                   {errors.password?.type === "minLength" && (
                     <p className="text-red-600 ">
-                      Password must be 6 characters or more.
+                      * Password must be 6 characters or more.
                     </p>
                   )}
                   {errors.password?.type === "pattern" && (
                     <p className="text-red-600 ">
-                      * Password must have <br/>
-                      One Uppercase Character. <br/>
-                      One Special Character. <br/>
+                      * Password must have <br />
+                      One Uppercase Character. <br />
+                      One Special Character. <br />
                     </p>
                   )}
+                  <input
+                  name="confirm_password"
+                  type="Password"
+                  placeholder="Confirm Password"
+                  className="input input-bordered mt-2"
+                    {...register("confirm_password", {
+                      required: true
+                    })}
+                  />
+
+                  {error ? <p className="text-red-600 ">* Confirm Password did not match</p> : <></> }
+
+                  {errors.confirm_password?.type === "required" && (
+                    <p className="text-red-600 ">* Confirm Password is required</p>
+                  )}
+
                   <label className="label">
                     <p>
                       Already have an account ?{" "}
