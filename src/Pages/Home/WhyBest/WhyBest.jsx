@@ -1,4 +1,4 @@
-import { FaUserNinja } from "react-icons/fa";
+import { FaCrown, FaUserNinja } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 import { FaHandsHelping } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
@@ -6,9 +6,12 @@ import { FaBookOpen } from "react-icons/fa";
 const WhyBest = () => {
   return (
     <div className="text-sky-600 bg-sky-100 mb-16">
-      <h1 className="font-bold text-6xl text-center mt-24 pt-16 font-mono uppercase">Why we are the Best</h1>
+      <div className="flex justify-center w-full">
+      <h1 className="font-bold text-6xl text-center mt-24 pt-16 font-mono uppercase flex mx-auto"><FaCrown className="me-4 invisible md:visible" ></FaCrown> Why we are the Best</h1>
+      </div>
+      <p className="font-bold mt-3 font-mono w-2/3 md:w-1/2 mx-auto text-center text-sky-500">Embrace the Power of Words, Discover the Joy of Communication: At Chit-Chat Academy, we believe that language holds the key to connection, understanding, and limitless possibilities.</p>
 
-      <div className="lg:flex pb-20 pt-10 px-12 md:px-32 bg-sky-100 grid w-full place-items-center">
+      <div className="lg:flex pb-40 pt-16 px-12 md:px-32 bg-sky-100 grid w-full place-items-center">
         
       <div className="card text-blue-800 w-96 mx-6  bg-base-100 shadow-xl my-6 md:my-0">
         <div className="card-body">
