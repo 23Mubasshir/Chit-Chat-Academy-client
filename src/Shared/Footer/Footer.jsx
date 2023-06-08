@@ -4,14 +4,14 @@ import { FaTwitter, FaYoutube, FaFacebook } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-    <footer className="footer lg:footer-center p-10 bg-[#90ee904f] text-primary-content">
+    <footer className="footer lg:footer-center p-10 bg-sky-100 text-primary-content">
         
       {/* -----Row-1:LoGO----- */}
       <div>
         <div className="flex text-left">
           <img className="w-1/3 md:w-48 lg:ml-12 mr-3" src={logo} alt="" />
-          <h1 className="md:text-5xl text-2xl mt-8 font-bold text-green-600 mb-4">
-            Chit-Chat <br /><span className="md:text-6xl text-green-800">Academy</span>
+          <h1 className="md:text-5xl text-2xl mt-8 font-bold text-sky-500 mb-4">
+            Chit-Chat <br /><span className="md:text-6xl text-blue-800">Academy</span>
           </h1>
         </div>
       </div>
@@ -51,7 +51,7 @@ const Footer = () => {
                 placeholder="username@site.com"
                 className="input input-bordered w-full pr-16"
               />
-              <button className="btn bg-green-800 text-base-200 absolute top-0 right-0 rounded-l-none">
+              <button className="btn bg-cyan-500 text-base-200 absolute top-0 right-0 rounded-l-none">
                 Subscribe
               </button>
             </div>
@@ -62,7 +62,7 @@ const Footer = () => {
       {/* -----Row-3: Copyright and Social media links----- */}
     </footer>
     <footer>
-        <div className="footer items-center py-6 px-32 bg-[#418f5b] text-white">
+        <div className="footer items-center py-6 px-32 bg-cyan-500 text-white">
         <div className="items-center grid-flow-col md:justify-self-start">
           <p>Copyright © 2023 - All right reserved</p>
         </div>

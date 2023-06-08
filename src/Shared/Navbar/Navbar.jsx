@@ -18,17 +18,17 @@ const Navbar = () => {
 
   const navItems = (
     <>
-      <li className="mx-2 text-xl font-medium">
+      <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
         <Link to="/">Home</Link>
       </li>
-      <li className="mx-2 text-xl font-medium">
+      <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
         <Link to="/instructors">Instructors</Link>
       </li>
-      <li className="mx-2 text-xl font-medium">
+      <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
         <Link to="/classes">Classes</Link>
       </li>
       {user ? (
-        <li className="mx-2 text-xl font-medium">
+        <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
           <Link to="/dashboard">Dashboard</Link>
         </li>
       ) : (
@@ -39,7 +39,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-[#90ee904f]">
+      <div className="navbar bg-sky-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -60,22 +60,22 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-cyan-400 rounded-box w-52"
             >
               {navItems}
             </ul>
           </div>
           <Link to="/">
-            <img className="w-16 py-3 lg:ml-24 mr-3" src={logo} alt="" />
+            <img className="w-20 mt-2 lg:ml-24 mr-3" src={logo} alt="" />
           </Link>
           <Link to="/">
-            <h1 className="text-xl mt-3 font-bold text-green-600 mb-4">
-            Chit-Chat  <br /> <span className="text-2xl text-green-800">Academy</span>
+            <h1 className="text-xl my-3 font-bold text-sky-500 ">
+            Chit-Chat  <br /> <span className="text-2xl text-blue-600">Academy</span>
             </h1>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navItems}</ul>
+          <ul className="menu menu-horizontal px-1 ">{navItems}</ul>
         </div>
         <div className="navbar-end lg:mr-20">
           {/* -----conditional user picture----- */}
@@ -102,14 +102,14 @@ const Navbar = () => {
           {user ? (
             <Link
               onClick={handleLogout}
-              className="btn btn-outline font-extrabold border-4 border-[#bg-#90ee904f] hover:bg-green-800 rounded-md mr-5"
+              className="btn btn-outline font-extrabold border-4 border-[#bg-#90ee904f] hover:bg-sky-600 rounded-md mr-5"
             >
               Logout
             </Link>
           ) : (
             <Link
               to="/sign-in"
-              className="btn btn-outline font-extrabold text-green-800 border-4 border-green-800 hover:bg-green-800 rounded-md mr-5"
+              className="btn btn-outline font-extrabold text-cyan-500 border-4 border-sky-600 hover:bg-sky-600 rounded-md mr-5"
             >
               Sign In
             </Link>
@@ -120,7 +120,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/sign-up"
-              className="btn btn-outline font-extrabold text-green-800 border-4 border-green-800 hover:bg-green-800 rounded-md mr-5"
+              className="btn btn-outline font-extrabold text-cyan-500 border-4 border-sky-600 hover:bg-sky-600 rounded-md mr-5"
             >
               Sign Up
             </Link>
