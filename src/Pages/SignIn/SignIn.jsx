@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 
 const SignIn = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
-  useTitle("Anime ToyWorld | Sign In");
+  useTitle("Chit-Chat Academy | Sign In");
   const {
     register,
     handleSubmit,

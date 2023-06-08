@@ -3,7 +3,7 @@ import img from "../../assets/images/ErrorPage.png"
 import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
-  useTitle('Anime ToyWorld | Error Page');
+  useTitle('Chit-Chat Academy | Error Page');
   return (
     <div>
       <div className="hero min-h-screen bg-base-100">

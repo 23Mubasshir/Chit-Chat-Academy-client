@@ -5,10 +5,13 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
 import useTitle from "../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
+import { FaEye } from "react-icons/fa";
 
 const SignUp = () => {
   const [error, setError] = useState(false);
-  useTitle("Anime ToyWorld | Sign Up");
+  const [hidePass, setHidePass] = useState(true);
+  useTitle("Chit-Chat Academy | Sign Up");
+
   const { createUser, signInWithGoogle, userProfileUpdating, setUser } =
     useContext(AuthContext);
   const {
@@ -20,11 +23,10 @@ const SignUp = () => {
 
   //  < ----- Regular Sign-Up ----->
   const onSubmit = (data) => {
-
-    if (data.password == data.confirm_password){
+    if (data.password == data.confirm_password) {
       createUser(data.email, data.password).then((result) => {
         const createdUser = result.user;
-  
+
         userProfileUpdating(createdUser, data.name, data.photoURL).then(() => {
           setUser({
             ...createdUser,
@@ -32,37 +34,8 @@ const SignUp = () => {
             photoURL: data.photoURL,
           });
         });
-  
-        // userProfileUpdating(data.name, data.photoURL)
-        //   .then(() => {
-        //   //   const saveUser = { name: data.name, email: data.email };
-        //   //   fetch("https://bistro-boss-server-fawn.vercel.app/users", {
-        //   //     method: "POST",
-        //   //     headers: {
-        //   //       "content-type": "application/json",
-        //   //     },
-        //   //     body: JSON.stringify(saveUser),
-        //   //   })
-        //   //     .then((res) => res.json())
-        //   //     .then((data) => {
-        //   //       if (data.insertedId) {
-        //   //         reset();
-        //   //         Swal.fire({
-        //   //           position: "top-end",
-        //   //           icon: "success",
-        //   //           title: "User created successfully.",
-        //   //           showConfirmButton: false,
-        //   //           timer: 1500,
-        //   //         });
-        //   //         navigate("/");
-        //   //       }
-        //   //     });
-        //   })
-        //   .catch((error) => console.log(error));
       });
-    }
-    else(setError(true));
-     
+    } else setError(true);
   };
 
   //  < ----- Google Sign-up ----->
@@ -78,8 +51,6 @@ const SignUp = () => {
         console.log(error.message);
       });
   };
-
-
 
   return (
     <div>
@@ -147,17 +118,26 @@ const SignUp = () => {
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <input
-                    name="password"
-                    type="Password"
-                    placeholder="Your Password"
-                    className="input input-bordered"
-                    {...register("password", {
-                      required: true,
-                      minLength: 6,
-                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
-                    })}
-                  />
+                  <div className="flex justify-around">
+                    <input
+                      name="password"
+                      type={hidePass ? "password" : "text"}
+                      placeholder="Your Password"
+                      className="input input-bordered w-4/5"
+                      {...register("password", {
+                        required: true,
+                        minLength: 6,
+                        pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
+                      })}
+                    />
+
+                    <div
+                      onClick={() => setHidePass(!hidePass)}
+                      className="btn btn-primary  ml-1"
+                    >
+                      <FaEye />
+                    </div>
+                  </div>
                   {errors.password?.type === "required" && (
                     <p className="text-red-600 ">* Password is required</p>
                   )}
@@ -174,19 +154,27 @@ const SignUp = () => {
                     </p>
                   )}
                   <input
-                  name="confirm_password"
-                  type="Password"
-                  placeholder="Confirm Password"
-                  className="input input-bordered mt-2"
+                    name="confirm_password"
+                    type={hidePass ? "password" : "text"}
+                    placeholder="Confirm Password"
+                    className="input input-bordered mt-2"
                     {...register("confirm_password", {
-                      required: true
+                      required: true,
                     })}
                   />
 
-                  {error ? <p className="text-red-600 ">* Confirm Password did not match</p> : <></> }
+                  {error ? (
+                    <p className="text-red-600 ">
+                      * Confirm Password did not match
+                    </p>
+                  ) : (
+                    <></>
+                  )}
 
                   {errors.confirm_password?.type === "required" && (
-                    <p className="text-red-600 ">* Confirm Password is required</p>
+                    <p className="text-red-600 ">
+                      * Confirm Password is required
+                    </p>
                   )}
 
                   <label className="label">
