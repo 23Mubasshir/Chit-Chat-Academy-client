@@ -1,7 +1,7 @@
 [
     {
       "name": "Spanish 101",
-      "image": "spanish_class.jpg",
+      "image": "https://i.ibb.co/RzJPdr4/Spanish.png",
       "instructor_name": "Maria Lopez",
       "instructor_email": "maria@example.com",
       "available_seats": 20,
@@ -9,7 +9,7 @@
     },
     {
       "name": "French Beginners",
-      "image": "french_class.jpg",
+      "image": "https://i.ibb.co/10xw8sD/French.png",
       "instructor_name": "Jean-Pierre Dubois",
       "instructor_email": "jeanpierre@example.com",
       "available_seats": 15,
@@ -17,7 +17,7 @@
     },
     {
       "name": "German Intensive",
-      "image": "german_class.jpg",
+      "image": "https://i.ibb.co/tMD9YSz/German.png",
       "instructor_name": "Hans Schmidt",
       "instructor_email": "hans@example.com",
       "available_seats": 12,
@@ -25,7 +25,7 @@
     },
     {
       "name": "Mandarin for Beginners",
-      "image": "mandarin_class.jpg",
+      "image": "https://i.ibb.co/bXzB118/Mandarin.jpg",
       "instructor_name": "Li Wei",
       "instructor_email": "liwei@example.com",
       "available_seats": 18,
@@ -33,7 +33,7 @@
     },
     {
       "name": "Italian Conversation",
-      "image": "italian_class.jpg",
+      "image": "https://i.ibb.co/wK1DGKp/Italian.png",
       "instructor_name": "Giuseppe Rossi",
       "instructor_email": "giuseppe@example.com",
       "available_seats": 10,
@@ -41,7 +41,7 @@
     },
     {
       "name": "Japanese Intermediate",
-      "image": "japanese_class.jpg",
+      "image": "https://i.ibb.co/bXJ7tZV/Japanese.jpg",
       "instructor_name": "Yuki Tanaka",
       "instructor_email": "yuki@example.com",
       "available_seats": 14,
@@ -49,7 +49,7 @@
     },
     {
       "name": "Russian for Travelers",
-      "image": "russian_class.jpg",
+      "image": "https://i.ibb.co/XSrLFLf/Russian.png",
       "instructor_name": "Natalia Ivanova",
       "instructor_email": "natalia@example.com",
       "available_seats": 16,
@@ -57,7 +57,7 @@
     },
     {
       "name": "Portuguese Essentials",
-      "image": "portuguese_class.jpg",
+      "image": "https://i.ibb.co/9TvxrF0/Portuguese.jpg",
       "instructor_name": "João Silva",
       "instructor_email": "joao@example.com",
       "available_seats": 20,
@@ -65,7 +65,7 @@
     },
     {
       "name": "Arabic for Beginners",
-      "image": "arabic_class.jpg",
+      "image": "https://i.ibb.co/C1w0Ctv/Arabic.jpg",
       "instructor_name": "Ahmed Khalid",
       "instructor_email": "ahmed@example.com",
       "available_seats": 12,
@@ -73,7 +73,7 @@
     },
     {
       "name": "Korean Conversation Club",
-      "image": "korean_class.jpg",
+      "image": "https://i.ibb.co/8byHGp6/Korean.jpg",
       "instructor_name": "Kim Min-ji",
       "instructor_email": "minji@example.com",
       "available_seats": 15,

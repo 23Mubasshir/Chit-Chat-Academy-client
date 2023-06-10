@@ -2,51 +2,51 @@
     {
       "instructor_name": "Maria Lopez",
       "instructor_email": "maria@example.com",
-      "image": "maria_lopez.jpg"
+      "image": "https://i.ibb.co/qyZVyFt/Arabici.jpg"
     },
     {
       "instructor_name": "Jean-Pierre Dubois",
       "instructor_email": "jeanpierre@example.com",
-      "image": "jeanpierre_dubois.jpg"
+      "image": "https://i.ibb.co/m8ppVdY/Mandarini.png"
     },
     {
       "instructor_name": "Hans Schmidt",
       "instructor_email": "hans@example.com",
-      "image": "hans_schmidt.jpg"
+      "image": "https://i.ibb.co/J3QYPbf/Russiani.jpg"
     },
     {
       "instructor_name": "Li Wei",
       "instructor_email": "liwei@example.com",
-      "image": "li_wei.jpg"
+      "image": "https://i.ibb.co/df8dZdB/Japanesei.jpg"
     },
     {
       "instructor_name": "Giuseppe Rossi",
       "instructor_email": "giuseppe@example.com",
-      "image": "giuseppe_rossi.jpg"
+      "image": "https://i.ibb.co/pQqVNrD/Frenchi.jpg"
     },
     {
       "instructor_name": "Yuki Tanaka",
       "instructor_email": "yuki@example.com",
-      "image": "yuki_tanaka.jpg"
+      "image": "https://i.ibb.co/b5psYV4/Portuguesei.jpg"
     },
     {
       "instructor_name": "Natalia Ivanova",
       "instructor_email": "natalia@example.com",
-      "image": "natalia_ivanova.jpg"
+      "image": "https://i.ibb.co/QvhFpgh/Spanishi.jpg"
     },
     {
       "instructor_name": "João Silva",
       "instructor_email": "joao@example.com",
-      "image": "joao_silva.jpg"
+      "image": "https://i.ibb.co/pnwHNGt/Italiani.webp"
     },
     {
       "instructor_name": "Ahmed Khalid",
       "instructor_email": "ahmed@example.com",
-      "image": "ahmed_khalid.jpg"
+      "image": "https://i.ibb.co/THQPHwB/Germani.png"
     },
     {
       "instructor_name": "Kim Min-ji",
       "instructor_email": "minji@example.com",
-      "image": "kim_minji.jpg"
+      "image": "https://i.ibb.co/TB0XhQs/Koreani.png"
     }
   ]

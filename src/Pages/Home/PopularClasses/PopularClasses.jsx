@@ -1,8 +1,10 @@
 import { Fade, Slide } from "react-awesome-reveal";
 import { FaTh } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import img from "../../../assets/images/Classes/Arabic.jpg"
 
 const PopularClasses = () => {
+
   return (
     <>
       <div className="my-5 bg-white mx-32">
@@ -24,7 +26,7 @@ const PopularClasses = () => {
             <div className="bg-sky-200 rounded-xl">
               <div className="flex flex-col p-8 rounded-xl bg-white shadow-2xl translate-x-4 translate-y-4 w-96 md:w-auto">
                 <img
-                  src="https://www.japan-academy.in/blog/wp-content/uploads/2021/04/Difference-between-Hiragana-and-Katakana-in-Japanese-Language.jpg"
+                  src={img}
                   className="w-80 rounded-xl"
                 />
                 <div className="mt-3 mb-1 font-semibold text-2xl">
