@@ -29,9 +29,10 @@ const Navbar = () => {
       <li className="mx-2 mt-1 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
         <Link to="/classes">Classes</Link>
       </li>
+      {/* Todo */}
       {user ? (
         <li className="mx-2 mt-1 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/dashboard/selected-Classes">Dashboard</Link>
         </li>
       ) : (
         <div></div>
