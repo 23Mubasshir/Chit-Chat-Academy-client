@@ -1,6 +1,4 @@
 
-
-
 const ClassesCard = ({props}) => {
   const { name, image, price, available_seats} = props;
 

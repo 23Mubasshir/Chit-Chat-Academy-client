@@ -15,6 +15,14 @@ const Classes = () => {
 
   return (
     <div>
+        
+      <div className="flex justify-center w-full text-sky-600 bg-sky-100 my-8">
+        <h1 className="font-bold text-6xl text-center  py-12 font-mono uppercase flex mx-auto ">
+         ------- Classes --------
+        </h1>
+      </div>
+      
+
       <div className="grid md:grid-cols-3 gap-10 my-16 mx-56">
         {classes.map((props) => (
           <ClassesCard key={props._id} props={props}></ClassesCard>
