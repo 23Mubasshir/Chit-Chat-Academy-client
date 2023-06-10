@@ -4,6 +4,9 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
+import Classes from "../Pages/Classes/Classes";
+import Instructors from "../Pages/Instructors/Instructors";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -24,17 +27,13 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/sign-in",
-        element: <SignIn />,
+        path: "/classes",
+        element: <PrivateRouter><Classes />s</PrivateRouter>,
       },
       {
-        path: "/sign-in",
-        element: <SignIn />,
-      },
-      {
-        path: "/sign-in",
-        element: <SignIn />,
-      },
+        path: "/instructors",
+        element: <PrivateRouter><Instructors /></PrivateRouter>,
+      }
     ],
   },
 ]);

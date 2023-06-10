@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/images/SignUp.jpg";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -10,6 +10,7 @@ import { FaEye } from "react-icons/fa";
 const SignUp = () => {
   const [error, setError] = useState(false);
   const [hidePass, setHidePass] = useState(true);
+  const navigate = useNavigate();
   useTitle("Chit-Chat Academy | Sign Up");
 
   const { createUser, signInWithGoogle, userProfileUpdating, setUser } =
@@ -17,7 +18,7 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -27,15 +28,20 @@ const SignUp = () => {
       createUser(data.email, data.password).then((result) => {
         const createdUser = result.user;
 
-        userProfileUpdating(createdUser, data.name, data.photoURL).then(() => {
+        userProfileUpdating(createdUser, data.name, data.photoURL)
+        .then(() => {
           setUser({
             ...createdUser,
             displayName: data.name,
             photoURL: data.photoURL,
           });
+          
         });
       });
-    } else setError(true);
+      reset();
+      navigate('/');
+    } 
+    else setError(true);
   };
 
   //  < ----- Google Sign-up ----->

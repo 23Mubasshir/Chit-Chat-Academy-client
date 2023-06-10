@@ -1,0 +1,82 @@
+[
+    {
+      "name": "Spanish 101",
+      "image": "spanish_class.jpg",
+      "instructor_name": "Maria Lopez",
+      "instructor_email": "maria@example.com",
+      "available_seats": 20,
+      "price": 50
+    },
+    {
+      "name": "French Beginners",
+      "image": "french_class.jpg",
+      "instructor_name": "Jean-Pierre Dubois",
+      "instructor_email": "jeanpierre@example.com",
+      "available_seats": 15,
+      "price": 60
+    },
+    {
+      "name": "German Intensive",
+      "image": "german_class.jpg",
+      "instructor_name": "Hans Schmidt",
+      "instructor_email": "hans@example.com",
+      "available_seats": 12,
+      "price": 70
+    },
+    {
+      "name": "Mandarin for Beginners",
+      "image": "mandarin_class.jpg",
+      "instructor_name": "Li Wei",
+      "instructor_email": "liwei@example.com",
+      "available_seats": 18,
+      "price": 55
+    },
+    {
+      "name": "Italian Conversation",
+      "image": "italian_class.jpg",
+      "instructor_name": "Giuseppe Rossi",
+      "instructor_email": "giuseppe@example.com",
+      "available_seats": 10,
+      "price": 65
+    },
+    {
+      "name": "Japanese Intermediate",
+      "image": "japanese_class.jpg",
+      "instructor_name": "Yuki Tanaka",
+      "instructor_email": "yuki@example.com",
+      "available_seats": 14,
+      "price": 75
+    },
+    {
+      "name": "Russian for Travelers",
+      "image": "russian_class.jpg",
+      "instructor_name": "Natalia Ivanova",
+      "instructor_email": "natalia@example.com",
+      "available_seats": 16,
+      "price": 55
+    },
+    {
+      "name": "Portuguese Essentials",
+      "image": "portuguese_class.jpg",
+      "instructor_name": "João Silva",
+      "instructor_email": "joao@example.com",
+      "available_seats": 20,
+      "price": 50
+    },
+    {
+      "name": "Arabic for Beginners",
+      "image": "arabic_class.jpg",
+      "instructor_name": "Ahmed Khalid",
+      "instructor_email": "ahmed@example.com",
+      "available_seats": 12,
+      "price": 70
+    },
+    {
+      "name": "Korean Conversation Club",
+      "image": "korean_class.jpg",
+      "instructor_name": "Kim Min-ji",
+      "instructor_email": "minji@example.com",
+      "available_seats": 15,
+      "price": 60
+    }
+  ]
