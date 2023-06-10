@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import ClassesCard from "../../Shared/ClassesCard/ClassesCard";
+import useTitle from "../../Hooks/useTitle";
 const Classes = () => {
+  useTitle('Chit-Chat Academy | Classes');
+
   const [classes, setClasses] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/classes")
@@ -12,6 +15,7 @@ const Classes = () => {
   }, []);
 
   return (
+    
     <div>
         
       <div className="flex justify-center w-full text-sky-600 bg-sky-100 my-8">

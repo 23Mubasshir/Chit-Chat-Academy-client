@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useCart from "../../Hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
   // * <-----Log-out function-----> */
   const handleLogout = () => {
@@ -84,7 +86,7 @@ const Navbar = () => {
               {user ? (
               <button className="btn bg-sky-500 text-white font-bold ">
               Courses
-              <div className="badge text-sky-500">+0</div>
+              <div className="badge text-sky-500">+{cart?.length || 0 }</div>
             </button>
               ) : (
                 <></>

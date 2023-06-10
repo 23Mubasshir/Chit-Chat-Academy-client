@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import InstructorsCard from "../../Shared/InstructorsCard/InstructorsCard";
+import useTitle from "../../Hooks/useTitle";
   
 
 const Instructors = () => {
+  useTitle('Chit-Chat Academy | Instructors');
     const [Instructors, setInstructors] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/instructors")
