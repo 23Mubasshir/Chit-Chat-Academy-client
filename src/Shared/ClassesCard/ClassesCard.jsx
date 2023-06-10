@@ -1,4 +1,9 @@
-const ClassesCard = () => {
+
+
+
+const ClassesCard = ({props}) => {
+  const { name, image, price, available_seats} = props;
+
   return (
     <div>
       {/* <!-- Classes Cards --> */}
@@ -6,22 +11,22 @@ const ClassesCard = () => {
         <div className="bg-sky-200 rounded-xl">
           <div className="flex flex-col p-8 rounded-xl bg-white shadow-2xl translate-x-4 translate-y-4 w-96 md:w-auto">
             <img
-              src="https://www.japan-academy.in/blog/wp-content/uploads/2021/04/Difference-between-Hiragana-and-Katakana-in-Japanese-Language.jpg"
+              src={image}
               className="w-80 rounded-xl"
             />
             <div className="mt-3 mb-1 font-semibold text-2xl">
-              Basic Japanese Course
-            </div>
+            {name}
+         </div>
             <div className="text-xl font-medium mb-4">
               by <span className="text-blue-600">Mr.Tomiyoka</span>
             </div>
             <div className="my-2">
-              <span className="font-bold text-base">Only Available :</span>
-              <span className="font-light text-sm"> 9 seats</span>
+              <span className="font-bold text-base">Available :</span>
+              <span className="font-light text-sm"> {available_seats} seats</span>
             </div>
 
             <div className="mb-2">
-              <span className="font-bold text-base">$ 299-</span>
+              <span className="font-bold text-base">$ {price}-</span>
               <span className="font-light text-sm">/ For Full Course</span>
             </div>
 
