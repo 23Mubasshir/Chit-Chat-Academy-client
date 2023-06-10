@@ -1,6 +1,59 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const ClassesCard = ({props}) => {
-  const { name, image, price, available_seats} = props;
+const ClassesCard = ({ props }) => {
+  const { user } = useContext(AuthContext);
+  const { name, image, price, available_seats, _id } = props;
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleAddToCart = (props) => {
+    console.log(props);
+    if (user && user.email) {
+      const cartItem = {
+        classItemId: _id,
+        name,
+        image,
+        price,
+        email: user.email,
+      };
+      fetch("http://localhost:5000/carts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cartItem),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            // refetch(); // update the number of items in the cart.
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your Course added on the cart.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to get the course",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sign in now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/sign-in", { state: { from: location } });
+        }
+      });
+    }
+  };
 
   return (
     <div>
@@ -12,15 +65,16 @@ const ClassesCard = ({props}) => {
               src={image}
               className="w-80 rounded-xl h-[300px] object-cover"
             />
-            <div className="mt-3 mb-1 font-semibold text-2xl">
-            {name}
-         </div>
+            <div className="mt-3 mb-1 font-semibold text-2xl">{name}</div>
             <div className="text-xl font-medium mb-4">
               by <span className="text-blue-600">Mr.Tomiyoka</span>
             </div>
             <div className="my-2">
               <span className="font-bold text-base">Available :</span>
-              <span className="font-light text-sm"> {available_seats} seats</span>
+              <span className="font-light text-sm">
+                {" "}
+                {available_seats} seats
+              </span>
             </div>
 
             <div className="mb-2">
@@ -28,7 +82,10 @@ const ClassesCard = ({props}) => {
               <span className="font-light text-sm">/ For Full Course</span>
             </div>
 
-            <button className="bg-sky-100 px-4 py-3 rounded-full  border border-[#F0F0F6] shadow-xl mt-4 font-semibold">
+            <button
+              onClick={() => handleAddToCart(props)}
+              className="bg-sky-100 px-4 py-3 rounded-full  border border-[#F0F0F6] shadow-xl mt-4 font-semibold"
+            >
               Select
             </button>
           </div>

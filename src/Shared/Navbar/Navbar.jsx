@@ -18,23 +18,22 @@ const Navbar = () => {
 
   const navItems = (
     <>
-      <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
+      <li className="mx-2 mt-1 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
         <Link to="/">Home</Link>
       </li>
-      <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
+      <li className="mx-2 mt-1 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
         <Link to="/instructors">Instructors</Link>
       </li>
-      <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
+      <li className="mx-2 mt-1 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
         <Link to="/classes">Classes</Link>
       </li>
       {user ? (
-        <li className="mx-2 text-xl font-bold bg-sky-500 text-white rounded-lg">
+        <li className="mx-2 mt-1 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
           <Link to="/dashboard">Dashboard</Link>
         </li>
       ) : (
         <div></div>
       )}
-      
     </>
   );
   return (
@@ -60,7 +59,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-cyan-400 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navItems}
             </ul>
@@ -70,17 +69,33 @@ const Navbar = () => {
           </Link>
           <Link to="/">
             <h1 className="text-xl my-3 font-bold text-sky-500 ">
-            Chit-Chat  <br /> <span className="text-2xl text-blue-600">Academy</span>
+              Chit-Chat <br />{" "}
+              <span className="text-2xl text-blue-600">Academy</span>
             </h1>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 ">{navItems}</ul>
+          <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end lg:mr-20">
+          {/* -----conditional cart----- */}
+          {user ? (
+            <Link to="/" className="md:mr-5">
+              {user ? (
+              <button className="btn bg-sky-500 text-white font-bold ">
+              Courses
+              <div className="badge text-sky-500">+0</div>
+            </button>
+              ) : (
+                <></>
+              )}
+            </Link>
+          ) : (
+            <div></div>
+          )}
           {/* -----conditional user picture----- */}
           {user ? (
-            <Link to="/" className="mr-5">
+            <Link to="/" className="mr-1 md:mr-5">
               {user.photoURL ? (
                 <div className="tooltip" data-tip={user.displayName}>
                   <img

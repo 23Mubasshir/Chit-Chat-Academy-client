@@ -20,7 +20,7 @@ const PopularClasses = () => {
 
   return (
     <>
-      <div className="my-5 bg-white mx-32">
+      <div className="my-5 bg-white lg:mx-32">
         <div className="p-10 rounded-xl">
           {/* <!-- headers content--> */}
 
@@ -31,7 +31,7 @@ const PopularClasses = () => {
             </h1>
           </Slide>
           <Fade>
-            <p className="font-bold mt-3 font-mono w-2/3 md:w-1/2  text-start text-sky-500 md:ms-20 ms-16">
+            <p className="font-bold mt-3 font-mono w-2/3 md:w-1/2  text-start text-sky-500 md:ms-20 md:ms-16">
               Step into our vibrant community of learners, where fluency is
               unlocked, conversations come alive, and the world becomes your
               playground.
@@ -39,7 +39,7 @@ const PopularClasses = () => {
           </Fade>
 
           {/* <!-- Classes Cards --> */}
-          <div className="grid md:grid-cols-3 gap-10 my-16 mx-32">
+          <div className="grid md:grid-cols-3 gap-10 my-16 lg:mx-32">
             {classes.map((props) => (
               <ClassesCard key={props._id} props={props}></ClassesCard>
             ))}

@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import InstructorsCard from "../../../Shared/InstructorsCard/InstructorsCard";
 
 const PopularInstructors = () => {
-
   const [Instructors, setInstructors] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/instructors")
@@ -17,7 +16,7 @@ const PopularInstructors = () => {
 
   return (
     <div>
-      <div className="my-5 mb-32 bg-white mx-32">
+      <div className="my-5 mb-32 bg-white md:mx-32">
         <div className="p-10 rounded-xl">
           {/* <!-- headers content--> */}
 
@@ -35,7 +34,9 @@ const PopularInstructors = () => {
 
 
           {/* Instructor Card */}
-          <div className="grid md:grid-cols-3 gap-10 my-16 mx-32">
+          <div className="grid md:grid-cols-2 
+          lg:grid-cols-3
+          gap-10 my-16 lg:mx-32">
           {Instructors.slice(0, 6).map((props) => (
             <InstructorsCard key={props._id} props={props}></InstructorsCard>
           ))}
