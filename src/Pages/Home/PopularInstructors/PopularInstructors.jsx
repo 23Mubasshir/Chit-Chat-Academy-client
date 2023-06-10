@@ -35,7 +35,7 @@ const PopularInstructors = () => {
 
 
           {/* Instructor Card */}
-          <div className="grid md:grid-cols-3 gap-10 my-16 mx-56">
+          <div className="grid md:grid-cols-3 gap-10 my-16 mx-32">
           {Instructors.slice(0, 6).map((props) => (
             <InstructorsCard key={props._id} props={props}></InstructorsCard>
           ))}

@@ -1,9 +1,22 @@
+import { useEffect, useState } from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import { FaTh } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import img from "../../../assets/images/Classes/Arabic.jpg"
+import ClassesCard from "../../../Shared/ClassesCard/ClassesCard";
+
 
 const PopularClasses = () => {
+  const [classes, setClasses] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/classes")
+      .then((res) => res.json())
+      .then((data) => {
+
+        // Most enrolled classes
+        const newData = data.sort((a, b) => parseFloat(a.available_seats) - parseFloat(b.available_seats)).slice(0,6); 
+        setClasses(newData);
+      });
+  }, []);
 
   return (
     <>
@@ -12,42 +25,24 @@ const PopularClasses = () => {
           {/* <!-- headers content--> */}
 
           <Slide>
-          <h1 className="font-bold text-6xl text-start pt-12 font-mono uppercase text-sky-800 flex">
-          <FaTh className="me-5"/>Top Classes
-          </h1>
+            <h1 className="font-bold text-6xl text-start pt-12 font-mono uppercase text-sky-800 flex">
+              <FaTh className="me-5" />
+              Top Classes
+            </h1>
           </Slide>
           <Fade>
-          <p className="font-bold mt-3 font-mono w-2/3 md:w-1/2  text-start text-sky-500 md:ms-20 ms-16">
-          Step into our vibrant community of learners, where fluency is unlocked, conversations come alive, and the world becomes your playground.
-          </p>
+            <p className="font-bold mt-3 font-mono w-2/3 md:w-1/2  text-start text-sky-500 md:ms-20 ms-16">
+              Step into our vibrant community of learners, where fluency is
+              unlocked, conversations come alive, and the world becomes your
+              playground.
+            </p>
           </Fade>
+
           {/* <!-- Classes Cards --> */}
-          <div className="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12  md:space-y-0 justify-center items-center mt-10">
-            <div className="bg-sky-200 rounded-xl">
-              <div className="flex flex-col p-8 rounded-xl bg-white shadow-2xl translate-x-4 translate-y-4 w-96 md:w-auto">
-                <img
-                  src={img}
-                  className="w-80 rounded-xl"
-                />
-                <div className="mt-3 mb-1 font-semibold text-2xl">
-                  Basic Japanese Course
-                </div>
-                <div className="text-xl font-medium mb-4">by <span className="text-blue-600" >Mr.Tomiyoka</span></div>
-                <div className="my-2">
-                  <span className="font-bold text-base">Only Available :</span>
-                  <span className="font-light text-sm"> 9 seats</span>
-                </div>
-
-                <div className="mb-2">
-                  <span className="font-bold text-base">$ 299-</span>
-                  <span className="font-light text-sm">/ For Full Course</span>
-                </div>
-
-                <button className="bg-[#F4F5FA] px-4 py-3 rounded-full  border border-[#F0F0F6] shadow-xl mt-4">
-                  Select
-                </button>
-              </div>
-            </div>
+          <div className="grid md:grid-cols-3 gap-10 my-16 mx-32">
+            {classes.map((props) => (
+              <ClassesCard key={props._id} props={props}></ClassesCard>
+            ))}
           </div>
 
           {/* <!-- All Classes Button --> */}

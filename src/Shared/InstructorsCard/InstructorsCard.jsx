@@ -6,9 +6,9 @@ const InstructorsCard = ({props}) => {
     return (
         <div>
             {/* Instructor Card */}
-          <div className="max-w-sm mx-auto my-10 bg-gray-100 rounded-lg shadow-2xl p-5">
+          <div className="max-w-sm mx-auto my-10 bg-gray-100 rounded-lg shadow-2xl p-5 h-[560px] flex-col justify-around ">
             <img
-              className="w-full mx-auto rounded"
+              className="w-full mx-auto rounded-2xl shadow-xl object-cover h-[250px] "
               src={image}
               alt="Profile picture"
             />
