@@ -1,4 +1,4 @@
-import { createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layouts/Main/Main";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
@@ -10,6 +10,14 @@ import PrivateRouter from "./PrivateRouter";
 import Dashboard from "../Layouts/Dashboard/Dashboard";
 import SelectedClasses from "../Pages/Dashboard/SelectedClasses/SelectedClasses";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+import MyClasses from "../Pages/Dashboard/MyClasses/MyClasses";
+import EnrolledStudents from "../Pages/Dashboard/EnrolledStudents/EnrolledStudents";
+import Feedback from "../Pages/Dashboard/Feedback/Feedback";
+import EnrolledClasses from "../Pages/Dashboard/EnrolledClasses/EnrolledClasses";
+import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 const router = createBrowserRouter([
   {
@@ -31,17 +39,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/classes",
-        element: <Classes />
+        element: <Classes />,
       },
       {
         path: "/instructors",
         element: <Instructors />,
-      }
+      },
     ],
   },
   {
     path: "dashboard",
-    element: <PrivateRouter><Dashboard /></PrivateRouter>,
+    element: (
+      <PrivateRouter>
+        <Dashboard />
+      </PrivateRouter>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -49,11 +61,59 @@ const router = createBrowserRouter([
         element: <SelectedClasses />,
       },
       {
+        path: "enrolled-classes",
+        element: <EnrolledClasses />,
+      },
+      {
+        path: "manage-classes",
+        element: (
+          <AdminRoute>
+            <ManageClasses />
+          </AdminRoute>
+        ),
+      },
+      {
         path: "manage-users",
-        element: <ManageUsers />,
+        element: (
+          <AdminRoute>
+            <ManageUsers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "add-Class",
+        element: (
+          <InstructorRoute>
+            <AddClass />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "my-classes",
+        element: (
+          <InstructorRoute>
+            <MyClasses />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "my-total-students",
+        element: (
+          <InstructorRoute>
+            <EnrolledStudents />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "feedback",
+        element: (
+          <InstructorRoute>
+            <Feedback />
+          </InstructorRoute>
+        ),
       },
     ],
-  }
+  },
 ]);
 
 export default router;

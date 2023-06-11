@@ -121,7 +121,7 @@ const Dashboard = () => {
                 </Slide>
                 <Slide>
                   <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                    <Link to="/enrolled-classes">
+                    <Link to="/dashboard/enrolled-classes">
                       <FaClipboardCheck />
                       My Enrolled Classes
                     </Link>
