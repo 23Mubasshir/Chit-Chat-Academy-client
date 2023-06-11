@@ -1,82 +1,128 @@
 [
-    {
-      "name": "Spanish 101",
-      "image": "https://i.ibb.co/RzJPdr4/Spanish.png",
-      "instructor_name": "Maria Lopez",
-      "instructor_email": "maria@example.com",
-      "available_seats": 20,
-      "price": 50
-    },
-    {
-      "name": "French Beginners",
-      "image": "https://i.ibb.co/10xw8sD/French.png",
-      "instructor_name": "Jean-Pierre Dubois",
-      "instructor_email": "jeanpierre@example.com",
-      "available_seats": 15,
-      "price": 60
-    },
-    {
-      "name": "German Intensive",
-      "image": "https://i.ibb.co/tMD9YSz/German.png",
-      "instructor_name": "Hans Schmidt",
-      "instructor_email": "hans@example.com",
-      "available_seats": 12,
-      "price": 70
-    },
-    {
-      "name": "Mandarin for Beginners",
-      "image": "https://i.ibb.co/bXzB118/Mandarin.jpg",
-      "instructor_name": "Li Wei",
-      "instructor_email": "liwei@example.com",
-      "available_seats": 18,
-      "price": 55
-    },
-    {
-      "name": "Italian Conversation",
-      "image": "https://i.ibb.co/wK1DGKp/Italian.png",
-      "instructor_name": "Giuseppe Rossi",
-      "instructor_email": "giuseppe@example.com",
-      "available_seats": 10,
-      "price": 65
-    },
-    {
-      "name": "Japanese Intermediate",
-      "image": "https://i.ibb.co/bXJ7tZV/Japanese.jpg",
-      "instructor_name": "Yuki Tanaka",
-      "instructor_email": "yuki@example.com",
-      "available_seats": 14,
-      "price": 75
-    },
-    {
-      "name": "Russian for Travelers",
-      "image": "https://i.ibb.co/XSrLFLf/Russian.png",
-      "instructor_name": "Natalia Ivanova",
-      "instructor_email": "natalia@example.com",
-      "available_seats": 16,
-      "price": 55
-    },
-    {
-      "name": "Portuguese Essentials",
-      "image": "https://i.ibb.co/9TvxrF0/Portuguese.jpg",
-      "instructor_name": "João Silva",
-      "instructor_email": "joao@example.com",
-      "available_seats": 20,
-      "price": 50
-    },
-    {
-      "name": "Arabic for Beginners",
-      "image": "https://i.ibb.co/C1w0Ctv/Arabic.jpg",
-      "instructor_name": "Ahmed Khalid",
-      "instructor_email": "ahmed@example.com",
-      "available_seats": 12,
-      "price": 70
-    },
-    {
-      "name": "Korean Conversation Club",
-      "image": "https://i.ibb.co/8byHGp6/Korean.jpg",
-      "instructor_name": "Kim Min-ji",
-      "instructor_email": "minji@example.com",
-      "available_seats": 15,
-      "price": 60
-    }
-  ]
+  {
+    "name": "Spanish 101",
+    "image": "https://i.ibb.co/RzJPdr4/Spanish.png",
+    "instructor_name": "Maria Lopez",
+    "instructor_email": "maria@example.com",
+    "available_seats": 0,
+    "price": 50,
+    "role" :"approved"
+  },
+  {
+    "name": "French Beginners",
+    "image": "https://i.ibb.co/10xw8sD/French.png",
+    "instructor_name": "Jean-Pierre Dubois",
+    "instructor_email": "jeanpierre@example.com",
+    "available_seats": 15,
+    "price": 60,
+    "role" :"approved"
+  },
+  {
+    "name": "German Intensive",
+    "image": "https://i.ibb.co/tMD9YSz/German.png",
+    "instructor_name": "Hans Schmidt",
+    "instructor_email": "hans@example.com",
+    "available_seats": 0,
+    "price": 70,
+    "role" :"approved"
+  },
+  {
+    "name": "Mandarin for Beginners",
+    "image": "https://i.ibb.co/bXzB118/Mandarin.jpg",
+    "instructor_name": "Li Wei",
+    "instructor_email": "liwei@example.com",
+    "available_seats": 18,
+    "price": 55,
+    "role" :"approved"
+  },
+  {
+    "name": "Italian Conversation",
+    "image": "https://i.ibb.co/wK1DGKp/Italian.png",
+    "instructor_name": "Giuseppe Rossi",
+    "instructor_email": "giuseppe@example.com",
+    "available_seats": 10,
+    "price": 65,
+    "role" :"approved"
+  },
+  {
+    "name": "Japanese Intermediate",
+    "image": "https://i.ibb.co/bXJ7tZV/Japanese.jpg",
+    "instructor_name": "Yuki Tanaka",
+    "instructor_email": "yuki@example.com",
+    "available_seats": 0,
+    "price": 75,
+    "role" :"approved"
+  },
+  {
+    "name": "Russian for Travelers",
+    "image": "https://i.ibb.co/XSrLFLf/Russian.png",
+    "instructor_name": "Natalia Ivanova",
+    "instructor_email": "natalia@example.com",
+    "available_seats": 16,
+    "price": 55,
+    "role" :"approved"
+  },
+  {
+    "name": "Portuguese Essentials",
+    "image": "https://i.ibb.co/9TvxrF0/Portuguese.jpg",
+    "instructor_name": "João Silva",
+    "instructor_email": "joao@example.com",
+    "available_seats": 20,
+    "price": 50,
+    "role" :"approved"
+  },
+  {
+    "name": "Arabic for Beginners",
+    "image": "https://i.ibb.co/C1w0Ctv/Arabic.jpg",
+    "instructor_name": "Ahmed Khalid",
+    "instructor_email": "ahmed@example.com",
+    "available_seats": 12,
+    "price": 70,
+    "role" :"pending"
+  },
+  {
+    "name": "Arabic for Beginners",
+    "image": "https://i.ibb.co/C1w0Ctv/Arabic.jpg",
+    "instructor_name": "Ahmed Khalid",
+    "instructor_email": "ahmed@example.com",
+    "available_seats": 12,
+    "price": 70,
+    "role" :"approved"
+  },
+  {
+    "name": "Arabic for Beginners",
+    "image": "https://i.ibb.co/C1w0Ctv/Arabic.jpg",
+    "instructor_name": "Ahmed Khalid",
+    "instructor_email": "ahmed@example.com",
+    "available_seats": 12,
+    "price": 70,
+    "role" :"denied"
+  },
+  {
+    "name": "Korean Conversation Club",
+    "image": "https://i.ibb.co/8byHGp6/Korean.jpg",
+    "instructor_name": "Kim Min-ji",
+    "instructor_email": "minji@example.com",
+    "available_seats": 15,
+    "price": 60,
+    "role" :"pending"
+  },
+  {
+    "name": "Korean Conversation Club",
+    "image": "https://i.ibb.co/8byHGp6/Korean.jpg",
+    "instructor_name": "Kim Min-ji",
+    "instructor_email": "minji@example.com",
+    "available_seats": 15,
+    "price": 60,
+    "role" :"approved"
+  },
+  {
+    "name": "Korean Conversation Club",
+    "image": "https://i.ibb.co/8byHGp6/Korean.jpg",
+    "instructor_name": "Kim Min-ji",
+    "instructor_email": "minji@example.com",
+    "available_seats": 15,
+    "price": 60,
+    "role" :"denied"
+  }
+]
