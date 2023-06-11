@@ -9,6 +9,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import PrivateRouter from "./PrivateRouter";
 import Dashboard from "../Layouts/Dashboard/Dashboard";
 import SelectedClasses from "../Pages/Dashboard/SelectedClasses/SelectedClasses";
+import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "selected-Classes",
         element: <SelectedClasses />,
+      },
+      {
+        path: "manage-users",
+        element: <ManageUsers />,
       },
     ],
   }

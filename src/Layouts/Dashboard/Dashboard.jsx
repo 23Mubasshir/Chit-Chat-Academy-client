@@ -6,7 +6,12 @@ import {
   FaClipboardCheck,
   FaClipboardList,
   FaHome,
+  FaRegCalendarCheck,
+  FaRegCalendarPlus,
+  FaTools,
   FaUserTie,
+  FaUsers,
+  FaUsersCog,
 } from "react-icons/fa";
 
 const Dashboard = () => {
@@ -46,23 +51,59 @@ const Dashboard = () => {
             </div>
 
             {isAdmin ? (
-              <Slide>
-                <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                  <Link to="/dashboard/selected-Classes">
-                    <FaClipboardList />
-                    My Selected Classes
-                  </Link>
-                </li>
-              </Slide>
+              <>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/dashboard/manage-classes">
+                      <FaTools />
+                      Manage Classes
+                    </Link>
+                  </li>
+                </Slide>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/dashboard/manage-users">
+                      <FaUsersCog />
+                      Manage Users
+                    </Link>
+                  </li>
+                </Slide>
+              </>
             ) : isInstructor ? (
-              <Slide>
-                <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                  <Link to="/dashboard/selected-Classes">
-                    <FaClipboardList />
-                    My Selected Classes
-                  </Link>
-                </li>
-              </Slide>
+              <>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/dashboard/add-Class">
+                      <FaRegCalendarPlus />
+                      Add a Class
+                    </Link>
+                  </li>
+                </Slide>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/dashboard/my-classes">
+                      <FaRegCalendarCheck />
+                      My Classes
+                    </Link>
+                  </li>
+                </Slide>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/dashboard/my-total-students">
+                      <FaUsers />
+                      Total Enrolled Students
+                    </Link>
+                  </li>
+                </Slide>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/dashboard/feedback">
+                      <FaClipboardList />
+                      Feedback
+                    </Link>
+                  </li>
+                </Slide>
+              </>
             ) : (
               <>
                 <Slide>
@@ -75,7 +116,7 @@ const Dashboard = () => {
                 </Slide>
                 <Slide>
                   <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                    <Link to="/">
+                    <Link to="/enrolled-classes">
                       <FaClipboardCheck />
                       My Enrolled Classes
                     </Link>
