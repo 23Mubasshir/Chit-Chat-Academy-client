@@ -34,13 +34,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/instructors",
-        element: <PrivateRouter><Instructors /></PrivateRouter>,
+        element: <Instructors />,
       }
     ],
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: <PrivateRouter><Dashboard /></PrivateRouter>,
     errorElement: <ErrorPage />,
     children: [
       {

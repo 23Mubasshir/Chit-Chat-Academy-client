@@ -1,9 +1,19 @@
 import { Slide, Zoom } from "react-awesome-reveal";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-import {FaBookReader, FaClipboardCheck, FaClipboardList, FaHome, FaUserTie } from 'react-icons/fa';
+import {
+  FaBookReader,
+  FaClipboardCheck,
+  FaClipboardList,
+  FaHome,
+  FaUserTie,
+} from "react-icons/fa";
 
 const Dashboard = () => {
+  //TODO
+  const isAdmin = true;
+  const isInstructor = false;
+
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -34,32 +44,70 @@ const Dashboard = () => {
                 </div>
               </Zoom>
             </div>
-            <Slide>
-              <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                <Link to="/dashboard/selected-Classes"><FaClipboardList/>My Selected Classes</Link>
-              </li>
-            </Slide>
-            <Slide>
-              <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                <Link to="/"><FaClipboardCheck/>My Enrolled Classes</Link>
-              </li>
-            </Slide>
+
+            {isAdmin ? (
+              <Slide>
+                <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                  <Link to="/dashboard/selected-Classes">
+                    <FaClipboardList />
+                    My Selected Classes
+                  </Link>
+                </li>
+              </Slide>
+            ) : isInstructor ? (
+              <Slide>
+                <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                  <Link to="/dashboard/selected-Classes">
+                    <FaClipboardList />
+                    My Selected Classes
+                  </Link>
+                </li>
+              </Slide>
+            ) : (
+              <>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/dashboard/selected-Classes">
+                      <FaClipboardList />
+                      My Selected Classes
+                    </Link>
+                  </li>
+                </Slide>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                    <Link to="/">
+                      <FaClipboardCheck />
+                      My Enrolled Classes
+                    </Link>
+                  </li>
+                </Slide>
+              </>
+            )}
 
             <div className="divider my-6"></div>
             <Slide>
               <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                <Link to="/"><FaHome/>Home</Link>
+                <Link to="/">
+                  <FaHome />
+                  Home
+                </Link>
               </li>
             </Slide>
 
             <Slide>
               <li className="mx-2 mt-1 md:mt-5 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                <Link to="/instructors"><FaUserTie/>Instructors</Link>
+                <Link to="/instructors">
+                  <FaUserTie />
+                  Instructors
+                </Link>
               </li>
             </Slide>
             <Slide>
               <li className="mx-2 mt-1 md:mt-5 md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                <Link to="/classes"><FaBookReader/>Classes</Link>
+                <Link to="/classes">
+                  <FaBookReader />
+                  Classes
+                </Link>
               </li>
             </Slide>
             {/* <Slide></Slide>

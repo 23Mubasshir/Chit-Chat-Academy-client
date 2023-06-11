@@ -42,24 +42,31 @@ const SignIn = () => {
         console.log(error);
         setError(error.message);
       });
-    };
+  };
 
-  //  < ----- Google Sign-in ----->
+  //  < ----- Google Sign-up ----->
   const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then((result) => {
-        // Signed in
-        const loggedUser = result.user;
-        // navigate(from, { replace: true });
-        console.log(loggedUser);
-        setError("");
-        setSuccess("User has been Signed In Successfully");
-        navigate(from, { replace: true });
+    signInWithGoogle().then((result) => {
+      const loggedInUser = result.user;
+      console.log(loggedInUser);
+      setError("");
+      setSuccess("User has been Signed In Successfully");
+      const saveUser = {
+        name: loggedInUser.displayName,
+        email: loggedInUser.email,
+      };
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
       })
-      .catch((error) => {
-        // Handle Errors here.
-        console.log(error.message);
-      });
+        .then((res) => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
+    });
   };
 
   return (

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/SignUp.jpg";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -6,11 +6,15 @@ import { useContext, useState } from "react";
 import useTitle from "../../Hooks/useTitle";
 import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const [error, setError] = useState(false);
   const [hidePass, setHidePass] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("login page location", location);
+  const from = location.state?.from?.pathname || "/";
   useTitle("Chit-Chat Academy | Sign Up");
 
   const { createUser, signInWithGoogle, userProfileUpdating, setUser } =
@@ -25,21 +29,50 @@ const SignUp = () => {
   //  < ----- Regular Sign-Up ----->
   const onSubmit = (data) => {
     if (data.password == data.confirm_password) {
-      createUser(data.email, data.password).then((result) => {
-        const createdUser = result.user;
 
-        userProfileUpdating(createdUser, data.name, data.photoURL)
-        .then(() => {
-          setUser({
-            ...createdUser,
-            displayName: data.name,
-            photoURL: data.photoURL,
-          });
-          
-        });
-      });
-      reset();
-      navigate('/');
+
+      createUser(data.email, data.password)
+            .then(result => {
+
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+
+                userProfileUpdating(loggedUser, data.name, data.photoURL)
+                    .then(() => {
+                      setUser({
+                        ...loggedUser,
+                        displayName: data.name,
+                        photoURL: data.photoURL,
+                      });
+                        const saveUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
+
+
+                    })
+                    .catch(error => console.log(error))
+            })
+
     } 
     else setError(true);
   };
@@ -47,16 +80,23 @@ const SignUp = () => {
   //  < ----- Google Sign-up ----->
   const handleGoogleSignUp = () => {
     signInWithGoogle()
-      .then((result) => {
-        // Signed in
-        const loggedUser = result.user;
-        console.log(loggedUser);
+    .then(result => {
+      const loggedInUser = result.user;
+      console.log(loggedInUser);
+      const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+      fetch('http://localhost:5000/users', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(saveUser)
       })
-      .catch((error) => {
-        // Handle Errors here.
-        console.log(error.message);
-      });
-  };
+          .then(res => res.json())
+          .then(() => {
+              navigate(from, { replace: true });
+          })
+  })
+}
 
   return (
     <div>
