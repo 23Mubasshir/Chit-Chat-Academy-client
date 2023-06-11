@@ -13,11 +13,16 @@ import {
   FaUsers,
   FaUsersCog,
 } from "react-icons/fa";
+import useAdmin from "../../Hooks/useAdmin";
+import useInstructor from "../../Hooks/useInstructor";
 
 const Dashboard = () => {
   //TODO
-  const isAdmin = true;
-  const isInstructor = false;
+  // const isAdmin = true;
+  // const isInstructor = false;
+
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <div>
