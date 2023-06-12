@@ -19,6 +19,7 @@ import ManageClasses from "../Pages/Dashboard/ManageClasses/ManageClasses";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import HomeDashboard from "../Pages/Dashboard/HomeDashboard/HomeDashboard.jsx/HomeDashboard";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: "/dashboard",
+        element: <HomeDashboard />,
+      },
       {
         path: "selected-Classes",
         element: <SelectedClasses />,

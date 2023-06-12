@@ -1,5 +1,5 @@
 import { Slide, Zoom } from "react-awesome-reveal";
-import { Link, Outlet} from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import {
   FaBookReader,
@@ -25,10 +25,7 @@ const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 
-
-
   return (
-    
     <div>
       <Navbar></Navbar>
       <div className="drawer lg:drawer-open">
@@ -64,6 +61,14 @@ const Dashboard = () => {
               <>
                 <Slide>
                   <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-400 text-white rounded-lg">
+                    <Link to="/dashboard">
+                      <FaHome />
+                      Home
+                    </Link>
+                  </li>
+                </Slide>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-400 text-white rounded-lg">
                     <Link to="/dashboard/manage-classes">
                       <FaTools />
                       Manage Classes
@@ -81,6 +86,14 @@ const Dashboard = () => {
               </>
             ) : isInstructor ? (
               <>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-400 text-white rounded-lg">
+                    <Link to="/dashboard">
+                      <FaHome />
+                      Home
+                    </Link>
+                  </li>
+                </Slide>
                 <Slide>
                   <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
                     <Link to="/dashboard/add-Class">
@@ -116,6 +129,14 @@ const Dashboard = () => {
               </>
             ) : (
               <>
+                <Slide>
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-400 text-white rounded-lg">
+                    <Link to="/dashboard">
+                      <FaHome />
+                      Home
+                    </Link>
+                  </li>
+                </Slide>
                 <Slide>
                   <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
                     <Link to="/dashboard/selected-Classes">
