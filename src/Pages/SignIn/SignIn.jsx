@@ -1,6 +1,6 @@
 import img from "../../assets/images/SingIn.jpg";
 import { Link } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import useTitle from "../../Hooks/useTitle";
 import "./SignIn.css";
@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const SignIn = () => {
+  const [hidePass, setHidePass] = useState(true);
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   useTitle("Chit-Chat Academy | Sign In");
   const {
@@ -99,13 +100,21 @@ const SignIn = () => {
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
+                  <div className="flex justify-between" >
                   <input
+                    type={hidePass ? "password" : "text"}
                     name="password"
-                    type="Password"
                     placeholder="Your Password"
                     className="input input-bordered"
                     {...register("password", { required: true })}
                   />
+                  <div
+                      onClick={() => setHidePass(!hidePass)}
+                      className="btn btn-primary  ml-1"
+                    >
+                      <FaEye />
+                    </div>
+                  </div>
                   {errors.name && (
                     <span className="text-red-600 mt-2">
                       Password is required

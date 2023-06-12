@@ -53,7 +53,10 @@ const MyClasses = () => {
                 <td className="text-center">{item.name}</td>
                 <td className="text-center">{item?.enrolled_students}</td>
                 <td>{item?.role}</td>
-                <td>{item?.feedback}</td>
+                <td>
+                  {item?.role == "denied" ? item?.feedback : <></>}
+                  
+                  </td>
                 <td>
                   <Link to="#">
                     <button className="btn btn-success text-white font-bold text-center">

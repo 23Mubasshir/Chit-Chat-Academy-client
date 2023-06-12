@@ -100,7 +100,7 @@ const ClassesCard = ({ props }) => {
               <span className="font-bold text-base">$ {price}-</span>
               <span className="font-light text-sm">/ For Full Course</span>
             </div>
-            {isAdmin || isInstructor || { available_seats } == 0 ? (
+            {isAdmin || isInstructor || available_seats == 0 ? (
               <button
                 disabled
                 onClick={() => handleAddToCart(props)}

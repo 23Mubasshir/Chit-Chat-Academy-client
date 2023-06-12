@@ -1,5 +1,5 @@
 import { Slide, Zoom } from "react-awesome-reveal";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet} from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import {
   FaBookReader,
@@ -15,17 +15,22 @@ import {
 } from "react-icons/fa";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
+import Navbar from "../../Shared/Navbar/Navbar";
+import Footer from "../../Shared/Footer/Footer";
 
 const Dashboard = () => {
   //TODO
   // const isAdmin = true;
   // const isInstructor = false;
-
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 
+
+
   return (
+    
     <div>
+      <Navbar></Navbar>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
@@ -39,7 +44,7 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-sky-100 text-base-content">
+          <ul className="menu p-4 w-80 h-full bg-sky-200 text-base-content">
             {/* Sidebar content here */}
 
             {/* ----- LoGO----- */}
@@ -58,7 +63,7 @@ const Dashboard = () => {
             {isAdmin ? (
               <>
                 <Slide>
-                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
+                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-400 text-white rounded-lg">
                     <Link to="/dashboard/manage-classes">
                       <FaTools />
                       Manage Classes
@@ -162,6 +167,7 @@ const Dashboard = () => {
           </ul>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

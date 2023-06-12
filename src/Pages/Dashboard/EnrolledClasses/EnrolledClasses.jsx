@@ -1,10 +1,20 @@
+import { useNavigate } from "react-router-dom";
+import useAdmin from "../../../Hooks/useAdmin";
+import useInstructor from "../../../Hooks/useInstructor";
 
 const EnrolledClasses = () => {
-    return (
-        <div>
-            <h1>EnrolledClasses</h1>
-        </div>
-    );
+  //redirect if not user
+  const navigate = useNavigate();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  if (isAdmin || isInstructor) {
+    navigate("/");
+  }
+  return (
+    <div>
+      <h1>My Enrolled Classes</h1>
+    </div>
+  );
 };
 
 export default EnrolledClasses;

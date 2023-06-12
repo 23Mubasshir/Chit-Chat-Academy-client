@@ -1,11 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
 import { FaTrashAlt } from "react-icons/fa";
+import useAdmin from "../../../Hooks/useAdmin";
+import useInstructor from "../../../Hooks/useInstructor";
 
 const SelectedClasses = () => {
   const [cart, refetch] = useCart();
   const total = cart.reduce((sum, item) => item.price + sum, 0);
+
+  //redirect if not user
+  const navigate = useNavigate();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  if(isAdmin || isInstructor){
+    navigate("/");
+  }
+
 
   const handleDelete = (item) => {
     Swal.fire({

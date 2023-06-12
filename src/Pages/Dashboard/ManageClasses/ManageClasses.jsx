@@ -56,7 +56,8 @@ const ManageClasses = () => {
       input: "text",
       showCancelButton: true,
     }).then((result) => {
-        const feedback=result.value;
+        if(result?.value){
+          const feedback=result.value;
         const updatedFeedback = {feedback};
         console.log(updatedFeedback)
         fetch(`http://localhost:5000/update-feedback/${item._id}`, {
@@ -70,6 +71,7 @@ const ManageClasses = () => {
           .then((data) => {
             console.log(data);
           });
+        }
     });
   };
 

@@ -1,20 +1,22 @@
 // import { useContext } from "react";
 import logo from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useCart from "../../Hooks/useCart";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
 
   // * <-----Log-out function-----> */
   const handleLogout = () => {
     logOut()
-      .then(() => {})
+      .then(() => {navigate('/');})
       .catch((error) => console.error(error));
+      
   };
   console.log(user);
 
