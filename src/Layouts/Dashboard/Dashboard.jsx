@@ -10,7 +10,6 @@ import {
   FaRegCalendarPlus,
   FaTools,
   FaUserTie,
-  FaUsers,
   FaUsersCog,
 } from "react-icons/fa";
 import useAdmin from "../../Hooks/useAdmin";
@@ -106,22 +105,6 @@ const Dashboard = () => {
                     <Link to="/dashboard/my-classes">
                       <FaRegCalendarCheck />
                       My Classes
-                    </Link>
-                  </li>
-                </Slide>
-                <Slide>
-                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                    <Link to="/dashboard/my-total-students">
-                      <FaUsers />
-                      Total Enrolled Students
-                    </Link>
-                  </li>
-                </Slide>
-                <Slide>
-                  <li className="mx-2 mt-1 md:mt-5  md:text-xl font-bold bg-sky-500 text-white rounded-lg">
-                    <Link to="/dashboard/feedback">
-                      <FaClipboardList />
-                      Feedback
                     </Link>
                   </li>
                 </Slide>
