@@ -8,7 +8,7 @@ import useInstructor from "../../Hooks/useInstructor";
 
 const ClassesCard = ({ props }) => {
   const { user } = useContext(AuthContext);
-  const { name, image, price, available_seats, _id, instructor_name } = props;
+  const { name, image, price, available_seats, _id, instructor_name, enrolled_students } = props;
   const [, refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,7 +27,7 @@ const ClassesCard = ({ props }) => {
         price,
         email: user.email,
       };
-      fetch("http://localhost:5000/carts", {
+      fetch("https://assignment-12-server-silk-seven.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -79,7 +79,7 @@ const ClassesCard = ({ props }) => {
       {/* <!-- Classes Cards --> */}
       <div className="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12  md:space-y-0 justify-center items-center mt-10">
         <div className="bg-sky-200 rounded-xl">
-          <div style={(available_seats == 0 ) ? objectStyle : objectStyleValid} className="flex flex-col p-8 rounded-xl bg-white shadow-2xl translate-x-4 translate-y-4 w-96 md:w-auto h-[550px]">
+          <div style={(available_seats == 0 ) ? objectStyle : objectStyleValid} className="flex flex-col p-8 rounded-xl bg-white shadow-2xl translate-x-4 translate-y-4 w-96 md:w-auto h-[570px]">
             <img
               src={image}
               className="w-80 rounded-xl h-[300px] object-cover"
@@ -88,15 +88,23 @@ const ClassesCard = ({ props }) => {
             <div className="text-xl font-medium mb-4">
               by <span className="text-blue-600">{instructor_name}</span>
             </div>
-            <div className="my-2">
+            <div className="mb-1">
               <span className="font-bold text-base">Available :</span>
               <span className="font-light text-sm">
                 {" "}
                 {available_seats} seats
               </span>
             </div>
+            
+            <div className="mb-1">
+              <span className="font-bold text-base">Already Enrolled :</span>
+              <span className="font-light text-sm">
+                {" "}
+                {enrolled_students} students
+              </span>
+            </div>
 
-            <div className="mb-2">
+            <div className="mb-1">
               <span className="font-bold text-base">$ {price}-</span>
               <span className="font-light text-sm">/ For Full Course</span>
             </div>
@@ -104,7 +112,7 @@ const ClassesCard = ({ props }) => {
               <button
                 disabled
                 onClick={() => handleAddToCart(props)}
-                className="bg-sky-100 px-4 py-3 rounded-full  border border-[#F0F0F6] shadow-xl mt-4 font-semibold"
+                className="bg-sky-100 px-4 py-2 rounded-full  border border-[#F0F0F6] shadow-xl mt-4 font-semibold"
               >
                 Select
               </button>

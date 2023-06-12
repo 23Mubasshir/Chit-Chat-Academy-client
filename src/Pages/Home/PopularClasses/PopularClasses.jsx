@@ -8,12 +8,12 @@ import ClassesCard from "../../../Shared/ClassesCard/ClassesCard";
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch("https://assignment-12-server-silk-seven.vercel.app/classes")
       .then((res) => res.json())
       .then((data) => {
 
         // Most enrolled classes
-        const newData = data.sort((a, b) => parseFloat(a.available_seats) - parseFloat(b.available_seats)).slice(0,6); 
+        const newData = data.sort((a, b) => parseFloat(b.enrolled_students) - parseFloat(a.enrolled_students)).slice(0,6); 
         setClasses(newData);
       });
   }, []);

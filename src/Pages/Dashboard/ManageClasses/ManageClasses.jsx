@@ -11,7 +11,7 @@ const ManageClasses = () => {
     return res.data;
   });
   const handleApprove = (item) => {
-    fetch(`http://localhost:5000/classApproved/admin/${item._id}`, {
+    fetch(`https://assignment-12-server-silk-seven.vercel.app/classApproved/admin/${item._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const ManageClasses = () => {
       });
   };
   const handleDeny = (item) => {
-    fetch(`http://localhost:5000/classDenied/admin/${item._id}`, {
+    fetch(`https://assignment-12-server-silk-seven.vercel.app/classDenied/admin/${item._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -60,7 +60,7 @@ const ManageClasses = () => {
           const feedback=result.value;
         const updatedFeedback = {feedback};
         console.log(updatedFeedback)
-        fetch(`http://localhost:5000/update-feedback/${item._id}`, {
+        fetch(`https://assignment-12-server-silk-seven.vercel.app/update-feedback/${item._id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

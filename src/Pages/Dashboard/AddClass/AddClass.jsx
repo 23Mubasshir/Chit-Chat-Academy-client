@@ -15,7 +15,7 @@ const AddClass = () => {
   const onSubmit = (data) => {
     const classWithRole = { ...data, role: "pending", price:parseFloat(data.price), available_seats:parseFloat(data.available_seats), enrolled_students:0, feedback:" " };
     console.log(classWithRole);
-    fetch("http://localhost:5000/classes", {
+    fetch("https://assignment-12-server-silk-seven.vercel.app/classes", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -19,7 +19,6 @@ import Navbar from "../../Shared/Navbar/Navbar";
 import Footer from "../../Shared/Footer/Footer";
 
 const Dashboard = () => {
-  //TODO
   // const isAdmin = true;
   // const isInstructor = false;
   const [isAdmin] = useAdmin();

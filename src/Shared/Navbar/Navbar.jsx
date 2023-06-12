@@ -5,18 +5,23 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useCart from "../../Hooks/useCart";
+import useAdmin from "../../Hooks/useAdmin";
+import useInstructor from "../../Hooks/useInstructor";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   // * <-----Log-out function-----> */
   const handleLogout = () => {
     logOut()
-      .then(() => {navigate('/');})
+      .then(() => {
+        navigate("/");
+      })
       .catch((error) => console.error(error));
-      
   };
   console.log(user);
 
@@ -86,13 +91,13 @@ const Navbar = () => {
           {/* -----conditional cart----- */}
           {user ? (
             <Link to="/" className="md:mr-5">
-              {user ? (
-              <button className="btn bg-sky-500 text-white font-bold ">
-              Courses
-              <div className="badge text-sky-500">+{cart?.length || 0 }</div>
-            </button>
-              ) : (
+              {isAdmin || isInstructor ? (
                 <></>
+              ) : (
+                <button className="btn bg-sky-500 text-white font-bold ">
+                  Courses
+                  <div className="badge text-sky-500">+{cart?.length || 0}</div>
+                </button>
               )}
             </Link>
           ) : (

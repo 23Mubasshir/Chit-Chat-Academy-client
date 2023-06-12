@@ -7,7 +7,7 @@ import InstructorsCard from "../../../Shared/InstructorsCard/InstructorsCard";
 const PopularInstructors = () => {
   const [Instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://assignment-12-server-silk-seven.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
         setInstructors(data);
