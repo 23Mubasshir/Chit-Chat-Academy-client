@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import ClientReview from "../ClientReview/ClientReview";
 import Details from "../Details/Details";
 import Features from "../Features/Features";
+import Form from "../Form/Form";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import WhyBest from "../WhyBest/WhyBest";
@@ -15,8 +16,9 @@ const Home = () => {
             <Features></Features>
             <Details></Details>
             <PopularClasses></PopularClasses>
-            <PopularInstructors></PopularInstructors>
             <WhyBest></WhyBest>
+            <Form></Form>
+            <PopularInstructors></PopularInstructors>
             <ClientReview></ClientReview>
         </div>
     );
